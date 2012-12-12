@@ -3,6 +3,10 @@ source 'https://rubygems.org'
 # Specify your gem's dependencies in podcast_reader.gemspec
 gemspec
 
-gem 'devtools', :git => 'https://github.com/datamapper/devtools.git'
+gem 'mocha', :require => false
+gem 'vcr'
+gem 'webmock'
+gem 'devtools',
+  :path => '/Users/shingara/prog/ruby/devtools'
 eval File.read('Gemfile.devtools')
 

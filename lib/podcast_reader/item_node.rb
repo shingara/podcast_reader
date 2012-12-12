@@ -1,6 +1,7 @@
 module PodcastReader
   class ItemNode
     include Virtus
+    include Adamantium
 
     attribute :title, String
     attribute :link, String
