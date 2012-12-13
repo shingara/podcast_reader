@@ -6,4 +6,8 @@ class PodcastReader::Channel
   attribute :description, String
   attribute :link, String
   attribute :language, String
+
+  def link=(li)
+    super li.is_a?(Array) ? li.first : li
+  end
 end

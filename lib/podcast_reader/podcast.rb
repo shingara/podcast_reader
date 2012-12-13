@@ -42,7 +42,7 @@ class PodcastReader::Podcast
   # @api public
   def entries
     [].tap {|entries|
-      request.body['rss']['channel']['item'].each do |item|
+      request_channel['item'].each do |item|
         entries << PodcastReader::ItemNode.new(item)
       end
     }
@@ -50,7 +50,7 @@ class PodcastReader::Podcast
   memoize :entries
 
   def channel
-    PodcastReader::Channel.new(request.body['rss']['channel'])
+    PodcastReader::Channel.new(request_channel)
   end
   memoize :channel
 
@@ -64,5 +64,12 @@ class PodcastReader::Podcast
     PodcastReader::Request.new(url)
   end
   memoize :request, :freezer => :flat
+
+  private
+
+  def request_channel
+    request.body['rss']['channel']
+  end
+  memoize :request_channel
 
 end
