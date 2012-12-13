@@ -1,7 +1,9 @@
 require 'rspec'
 
-require 'simplecov'
-SimpleCov.start
+if ENV['COVERAGE']
+  require 'simplecov'
+  SimpleCov.start
+end
 
 require 'podcast_reader'
 
