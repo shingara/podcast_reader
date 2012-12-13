@@ -1,5 +1,6 @@
 require 'faraday'
 require 'faraday_middleware'
+require 'multi_xml'
 require 'uri'
 
 class PodcastReader::Request
@@ -58,7 +59,7 @@ class PodcastReader::Request
   #
   def connection
     Faraday.new(:url => host) do |faraday|
-      faraday.response :logger                  # log requests to STDOUT
+      #faraday.response :logger                  # log requests to STDOUT
       faraday.response :xml,  :content_type => /\bxml$/
       faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
     end
