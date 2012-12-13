@@ -1,6 +1,6 @@
 # PodcastReader
 
-TODO: Write a gem description
+Gem to fetch information about podcast RSS
 
 ## Installation
 
@@ -18,7 +18,30 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+You just need use PodcastReader::Podcast with url in params
+
+```ruby
+require 'podcast_reader'
+podcast = PodcastReader::Podcast.new('http://feeds.feedburner.com/RubyRogues')
+podcast.entries.each do |entry|
+  p entry
+end
+```
+
+If you want choose all HTTP Adapter define by Faraday.
+
+By example if you want use the adapter Typhoeus you can do
+
+```ruby
+Faraday.default_adapter = :typhoeus
+```
+
+You can parse the XML in rss feed with all adapter define in multi_xml.
+By example if you want use the Ox parser
+
+```ruby
+MultiXml.parser = :ox
+```
 
 ## Contributing
 
