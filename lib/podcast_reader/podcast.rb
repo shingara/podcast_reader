@@ -49,6 +49,11 @@ class PodcastReader::Podcast
   end
   memoize :entries
 
+  def channel
+    PodcastReader::Channel.new(request.body['rss']['channel'])
+  end
+  memoize :channel
+
   ##
   # The Faraday connection
   #

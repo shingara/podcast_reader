@@ -5,6 +5,8 @@ SimpleCov.start
 
 require 'podcast_reader'
 
+Faraday.default_adapter = :net_http
+
 RSpec.configure do |config|
   config.mock_framework = :mocha
 end

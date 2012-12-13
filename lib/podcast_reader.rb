@@ -10,3 +10,4 @@ end
 require 'podcast_reader/podcast'
 require 'podcast_reader/item_node'
 require 'podcast_reader/request'
+require 'podcast_reader/channel'
